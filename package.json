@@ -1,0 +1,11 @@
+{
+  "name": "oftb-md",
+  "version": "0.0.1",
+  "author": "Osama Mohammed",
+  "description": "Out of the box MD is an improved MD that allows you to customize your MD by yourself",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo Done"
+  },
+  "license": "MIT"
+}
