@@ -11,13 +11,13 @@
 Hi! Here are my latest blogs :)
 
 {
-  ### How to success in life
-  @@Some tips to success in life by Osama Mohammed...@@
+  ### How to succeed in life
+  @@Some tips to succeed in life by Osama Mohammed...@@
 }
 
 {
   ### How to succeed in programming
-  @@Some tips to success in programming by Osama Mohammed...@@
+  @@Some tips to succeed in programming by Osama Mohammed...@@
 }
 ```
 
