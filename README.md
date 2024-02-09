@@ -3,6 +3,28 @@
   <p>Now you can customize</p>
 </center>
 
+`marking-down` is a library that enables you to customize and use components inside of your .md file. See this example:
+
+```md
+Hi! Here are my latest blogs :)
+
+{
+
+### How to success in life
+
+@@Some tips to success in life by Osama Mohammed...@@
+}
+
+{
+
+### How to succeed in programming
+
+@@Some tips to success in programming by Osama Mohammed...@@
+}
+```
+
+See the output live:
+
 - [Installation](#installation)
 - [Quick Start](#quick-start)
 - [Features](#features)
@@ -50,9 +72,3 @@ export function Blog() {
 - with [react](#react)
 - with next.js
 ```
-
-## Features
-
-- **⚙ Fully configurable**: You can customize everything you want
-- **📦 Lightweight**: The package is only
-- **😍 Amazing default styles**: The default styles are very powerful.

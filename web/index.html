@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>marking-down | Osama Mohammed</title>
+  </head>
+  <body>
+    <div class="container"></div>
+    <script type="module">
+      import { md } from "../dist/marking-down.js";
+
+      document.querySelector(".container").innerHTML = md(`
+        # marking-down
+
+        The website is built with marking-down
+
+        - [Installation](#installation)
+        - [Quick Start](#quick-start)
+        - [Guide](#guide)
+      `);
+    </script>
+  </body>
+</html>
