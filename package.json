@@ -1,8 +1,9 @@
 {
-  "name": "oftb-md",
+  "name": "marking-down",
   "version": "0.0.1",
   "author": "Osama Mohammed",
-  "description": "Out of the box MD is an improved MD that allows you to customize your MD by yourself",
+  "description": "Now you can customize",
+  "keywords": ["md", "markdown"],
   "main": "index.js",
   "scripts": {
     "test": "echo Done"

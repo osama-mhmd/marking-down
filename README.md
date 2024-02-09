@@ -1,9 +1,8 @@
 <center>
-    <h1>oftb-md</h1>
+    <h1>marking-down</h1>
+    Now you can customize
 </center>
----
 
-Out of the box MD is an improved MD that allows you to customize how should your MD processer work. Let see an example:
 
 ```js
 // post.md
@@ -29,4 +28,4 @@ document.body.innerHTML = mdFile("post.md", {
 
 ## Installation
 
-| Installation guide
+Installation Guide
