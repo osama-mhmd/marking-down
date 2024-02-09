@@ -20,7 +20,7 @@ describe("md()", () => {
   });
 
   test("should return normal text", () => {
-    expect(md("My normal text")).toBe("My normal text<br>");
+    expect(md("My normal text")).toBe("My normal text");
   });
 
   test("should return heading and normal text", () => {
@@ -41,7 +41,7 @@ describe("md()", () => {
 
   test("should hyperlink", () => {
     expect(md("[Installation](#installation)")).toBe(
-      "<a href='#installation'>Installation</a><br>"
+      "<a href='#installation'>Installation</a>"
     );
   });
 
@@ -96,8 +96,35 @@ describe("md()", () => {
   });
 
   test("should make a paragraph", () => {
-    expect(md("@@My paragraph@@")).toBe(
-      '<p class="muted">My paragraph</p><br>'
+    expect(md("@@My paragraph@@")).toBe('<p class="muted">My paragraph</p>');
+  });
+
+  test("should make a paragraph (another one)", () => {
+    expect(md("@@My paragraph@@@@Another paragraph@@")).toBe(
+      '<p class="muted">My paragraph</p><p class="muted">Another paragraph</p>'
+    );
+  });
+
+  test("should make a paragraph (another one) +1", () => {
+    expect(
+      md(`
+      @@My paragraph 
+      can wrap@@`)
+    ).toBe('<p class="muted">My paragraph can wrap</p>');
+  });
+
+  test("should make a full card", () => {
+    expect(
+      md(`
+      {
+        ### Heading
+        @@
+        Content
+        @@
+      }
+    `)
+    ).toBe(
+      '<div class="card"><h3>Heading</h3><hr /><p class="muted">Content</p></div>'
     );
   });
 });

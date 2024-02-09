@@ -45,8 +45,14 @@ function md(text: string, config: Config = defaultConfig) {
 
   return lines
     .map((el, index) => {
+      if (el == "@@") {
+        const result =
+          closeOrOpen % 2 ? "</p>" : style("<p>", config.styles?.paragraph);
+        closeOrOpen++;
+        return result;
+      }
       el = el.replaceAll(
-        /@@(.*)@@/g,
+        /@@(.*?)@@/g,
         style("<p>$1</p>", config.styles?.paragraph)
       );
       if (el.indexOf("@@") != -1) {
@@ -61,13 +67,15 @@ function md(text: string, config: Config = defaultConfig) {
       if (el == "{") return style("<div>", config.styles?.card);
       if (el == "}") return "</div>";
       if (lines[index + 1] == "}") return el;
-      return el + "<br>";
+      return el + " ";
     })
     .join("")
+    .trim()
     .replaceAll(
       /\[(.*?)\]\((.*?)\)/g,
       style(`<a href='$2'>$1</a>`, config.styles?.hyperlink)
-    ); // hyperlink()
+    ) // hyperlink()
+    .replaceAll(/>(.*?) ?</g, ">$1<");
 }
 
 function mdFile(path: string, config?: Config) {
