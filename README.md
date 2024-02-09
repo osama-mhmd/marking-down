@@ -1,7 +1,9 @@
-<center>
-  <h1>marking-down</h1>
-  <p>Now you can customize</p>
-</center>
+<h1>
+  <center>marking-down</center>
+</h1>
+<p>
+  <center>Now you can customize</center>
+</p>
 
 `marking-down` is a library that enables you to customize and use components inside of your .md file. See this example:
 
@@ -9,17 +11,13 @@
 Hi! Here are my latest blogs :)
 
 {
-
-### How to success in life
-
-@@Some tips to success in life by Osama Mohammed...@@
+  ### How to success in life
+  @@Some tips to success in life by Osama Mohammed...@@
 }
 
 {
-
-### How to succeed in programming
-
-@@Some tips to success in programming by Osama Mohammed...@@
+  ### How to succeed in programming
+  @@Some tips to success in programming by Osama Mohammed...@@
 }
 ```
 
