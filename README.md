@@ -1,31 +1,58 @@
 <center>
-    <h1>marking-down</h1>
-    Now you can customize
+  <h1>marking-down</h1>
+  <p>Now you can customize</p>
 </center>
 
-
-```js
-// post.md
-# Heading
-
-%embed
-%embed.header = Post
-%embed.description = My own description
-%embed.footer = My footer
-%end
-
-// index.js
-document.body.innerHTML = mdFile("post.md", {
-    embed: {
-        main: "my embed classes", // Overwrite the default one
-        header: "my embed header classes",
-        // ...
-    }
-})
-```
-
 - [Installation](#installation)
+- [Quick Start](#quick-start)
+- [Features](#features)
 
 ## Installation
 
-Installation Guide
+```bash
+# using npm
+npm install marking-down
+
+# using yarn
+yarn add marking-down
+
+# using pnpm
+pnpm add marking-down
+```
+
+## Quick Start
+
+### React
+
+In your react app, add these lines
+
+```jsx
+// page.tsx
+import { mdFile } from "marking-down";
+import * as path from "path";
+
+export function Blog() {
+  return (
+    <div
+      dangerouslySetInnerHTML={{
+        __html: mdFile(path.resolve(__dirname, "blog.md")),
+      }}
+    ></div>
+  );
+}
+```
+
+```md
+--> blog.md
+
+# Installation
+
+- with [react](#react)
+- with next.js
+```
+
+## Features
+
+- **⚙ Fully configurable**: You can customize everything you want
+- **📦 Lightweight**: The package is only
+- **😍 Amazing default styles**: The default styles are very powerful.

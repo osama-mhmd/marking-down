@@ -3,10 +3,37 @@
   "version": "0.0.1",
   "author": "Osama Mohammed",
   "description": "Now you can customize",
-  "keywords": ["md", "markdown"],
-  "main": "index.js",
-  "scripts": {
-    "test": "echo Done"
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/marking-down.cjs",
+  "module": "./dist/marking-down.js",
+  ".": {
+    "require": "./dist/marking-down.cjs",
+    "import": "./dist/marking-down.js"
   },
-  "license": "MIT"
+  "keywords": [
+    "md",
+    "markdown"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/osama-mhmd/marking-down"
+  },
+  "scripts": {
+    "build": "vite build",
+    "lint": "eslint",
+    "test": "vitest",
+    "coverage": "vitest --coverage"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@changesets/cli": "^2.27.1",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "eslint": "^8.56.0",
+    "vite": "^5.1.1",
+    "vitest": "^1.2.2"
+  }
 }
