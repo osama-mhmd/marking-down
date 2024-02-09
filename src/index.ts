@@ -37,6 +37,7 @@ function bullet(
 }
 
 function md(text: string, config: Config = defaultConfig) {
+  let closeOrOpen = 0;
   const lines = text
     .split("\n")
     .map((el) => el.trim())
@@ -44,13 +45,27 @@ function md(text: string, config: Config = defaultConfig) {
 
   return lines
     .map((el, index) => {
+      el = el.replaceAll(
+        /@@(.*)@@/g,
+        style("<p>$1</p>", config.styles?.paragraph)
+      );
+      if (el.indexOf("@@") != -1) {
+        el = el.replace(
+          "@@",
+          closeOrOpen % 2 ? "</p>" : style("<p>", config.styles?.paragraph)
+        );
+        closeOrOpen++;
+      }
       if (isHeading(el)) return head(el, config.styles?.heading);
-      if (isLi(el)) return bullet(lines, el, index, config.styles?.ul);
+      if (isLi(el)) return bullet(lines, el, index, config.styles?.li);
+      if (el == "{") return style("<div>", config.styles?.card);
+      if (el == "}") return "</div>";
+      if (lines[index + 1] == "}") return el;
       return el + "<br>";
     })
     .join("")
     .replaceAll(
-      /\[(.*)\]\((.*)\)/g,
+      /\[(.*?)\]\((.*?)\)/g,
       style(`<a href='$2'>$1</a>`, config.styles?.hyperlink)
     ); // hyperlink()
 }

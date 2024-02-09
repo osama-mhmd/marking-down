@@ -3,12 +3,10 @@ import Config from "./config.d";
 const defaultConfig: Config = {
   styles: {
     heading: "",
-    ul: "",
+    li: "",
     hyperlink: "",
-    embed: "",
-    embedHeader: "",
-    embedBody: "",
-    embedFooter: "",
+    card: "card",
+    paragraph: "muted",
   },
 };
 
