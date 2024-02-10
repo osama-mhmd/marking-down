@@ -8,7 +8,7 @@ const g = {
   },
 };
 function y(t) {
-  return /\# (.*)/.test(t);
+  return /^#+ (.*)$/.test(t);
 }
 function m(t, e) {
   const n = t.split(" ")[0].length,
@@ -24,7 +24,7 @@ function s(t, e) {
   return e ? t.replace(">", ` class="${e}">`) : t;
 }
 function l(t) {
-  return /\- (.*)/.test(t);
+  return /^\- (.*)$/.test(t);
 }
 function L(t, e, n, i) {
   const a = l(t[n - 1]) ? "" : "<ul>",

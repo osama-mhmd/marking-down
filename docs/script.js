@@ -64,6 +64,14 @@ const markdown = `
     @@Some tips to succeed in programming by Osama Mohammed...@@
   }
   </div>
+
+  ### Example 2
+
+  ### Example 3
+
+  <hr />
+
+  Osama Mohammed @ marking-down --- 2024
 `;
 
 document.querySelector(".container").innerHTML = md(markdown);
