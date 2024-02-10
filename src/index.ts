@@ -10,7 +10,9 @@ function head(text: string, styles: string | undefined) {
   const innerHTML = /\# (.*)/.exec(text)![1];
 
   return style(
-    `<h${headingLevel}>${innerHTML}</h${headingLevel}><hr />`,
+    `<h${headingLevel}>${innerHTML}</h${headingLevel}>${
+      headingLevel > 2 ? "" : "<hr />"
+    }`,
     styles
   );
 }

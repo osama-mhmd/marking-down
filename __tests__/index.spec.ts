@@ -16,7 +16,7 @@ describe("md()", () => {
   });
 
   test("should do headings with levels", () => {
-    expect(md("### Heading 3")).toBe("<h3>Heading 3</h3><hr />");
+    expect(md("### Heading 3")).toBe("<h3>Heading 3</h3>");
   });
 
   test("should return normal text", () => {
@@ -92,7 +92,7 @@ describe("md()", () => {
         Content
       }
     `)
-    ).toBe('<div class="card"><h3>Post</h3><hr />Content</div>');
+    ).toBe('<div class="card"><h3>Post</h3>Content</div>');
   });
 
   test("should make a paragraph", () => {
@@ -124,7 +124,7 @@ describe("md()", () => {
       }
     `)
     ).toBe(
-      '<div class="card"><h3>Heading</h3><hr /><p class="muted">Content</p></div>'
+      '<div class="card"><h3>Heading</h3><p class="muted">Content</p></div>'
     );
   });
 });
@@ -140,14 +140,14 @@ describe("mdFile()", () => {
     expect(mdFile(path.resolve(__dirname, "index-2.spec.md"))).toBe(
       "<h1>My library</h1><hr /><ul><li><a href='#config'>Config</a></li>" +
         "<li><a href='#quick-start'>Quick Start</a></li></ul><h2>Config</h2><hr />" +
-        '<div class="card"><h3>Some header</h3><hr />Some body</div><h2>Quick Start</h2><hr />'
+        '<div class="card"><h3>Some header</h3>Some body</div><h2>Quick Start</h2><hr />'
     );
   });
 
   test("should return md from a file (another one) +1", () => {
     expect(mdFile(path.resolve(__dirname, "index-3.spec.md"))).toBe(
-      '<div class="card"><h3>Some header 1</h3><hr />Some body 1</div>' +
-        '<div class="card"><h3>Some header 2</h3><hr />Some body 2</div>'
+      '<div class="card"><h3>Some header 1</h3>Some body 1</div>' +
+        '<div class="card"><h3>Some header 2</h3>Some body 2</div>'
     );
   });
 });
