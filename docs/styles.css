@@ -1,0 +1,45 @@
+body {
+  background-color: #111;
+  color: white;
+  margin: 0;
+  font-family: "Inter", sans-serif;
+}
+
+a {
+  color: rgb(255, 163, 255);
+}
+
+h1,
+h2 {
+  margin-bottom: 0;
+}
+
+hr {
+  margin-bottom: 1rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+::-webkit-scrollbar {
+  background-color: none;
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #111;
+}
+
+.card {
+  border: 2px solid #333;
+  background-color: #232323;
+  border-radius: 1rem;
+  margin: 1rem 0;
+  padding: 1rem;
+}
+
+.card-container {
+  background-color: #121212;
+}

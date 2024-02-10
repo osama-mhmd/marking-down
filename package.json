@@ -7,10 +7,10 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/marking-down.cjs",
+  "main": "./dist/marking-down.umd.cjs",
   "module": "./dist/marking-down.js",
   ".": {
-    "require": "./dist/marking-down.cjs",
+    "require": "./dist/marking-down.umd.cjs",
     "import": "./dist/marking-down.js"
   },
   "keywords": [
