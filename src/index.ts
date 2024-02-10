@@ -72,6 +72,7 @@ function md(text: string, config: Config = defaultConfig) {
       if (el == "{") return style("<div>", config.styles?.card);
       if (el == "}") return "</div>";
       if (lines[index + 1] == "}") return el;
+      if (el == "---") return "<hr />";
       return el + " ";
     })
     .join("")

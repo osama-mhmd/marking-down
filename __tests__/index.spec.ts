@@ -139,6 +139,25 @@ describe("md()", () => {
       "Osama Mohammed # marking-down --- 2024"
     );
   });
+
+  test("should make a seperator", () => {
+    expect(
+      md(`
+      # Heading
+
+      @@
+      My paragraph@@
+      ---
+      {
+        ### Card
+        @@Content@@
+      }
+    `)
+    ).toBe(
+      '<h1 id="heading">Heading</h1><hr /><p class="muted">My paragraph</p><hr />' +
+        '<div class="card"><h3 id="card">Card</h3><p class="muted">Content</p></div>'
+    );
+  });
 });
 
 describe("mdFile()", () => {
