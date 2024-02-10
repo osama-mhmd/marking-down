@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: #111;
   color: white;
@@ -16,11 +20,13 @@ h2 {
 
 hr {
   margin-bottom: 1rem;
+  border-color: #888;
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 15px;
 }
 
 ::-webkit-scrollbar {
