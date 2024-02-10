@@ -10,7 +10,10 @@ function head(text: string, styles: string | undefined) {
   const innerHTML = /\# (.*)/.exec(text)![1];
 
   return style(
-    `<h${headingLevel}>${innerHTML}</h${headingLevel}>${
+    `<h${headingLevel} id="${innerHTML
+      .toLowerCase()
+      .split(" ")
+      .join("-")}">${innerHTML}</h${headingLevel}>${
       headingLevel > 2 ? "" : "<hr />"
     }`,
     styles

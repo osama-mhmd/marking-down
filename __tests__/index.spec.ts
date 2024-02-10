@@ -12,11 +12,11 @@ describe("md()", () => {
   });
 
   test("should do headings", () => {
-    expect(md("# Heading 1")).toBe("<h1>Heading 1</h1><hr />");
+    expect(md("# Heading 1")).toBe('<h1 id="heading-1">Heading 1</h1><hr />');
   });
 
   test("should do headings with levels", () => {
-    expect(md("### Heading 3")).toBe("<h3>Heading 3</h3>");
+    expect(md("### Heading 3")).toBe('<h3 id="heading-3">Heading 3</h3>');
   });
 
   test("should return normal text", () => {
@@ -31,7 +31,7 @@ describe("md()", () => {
       - Bullet 2
     `)
     ).toBe(
-      "<h2>Heading 2</h2><hr /><ul><li>Bullet 1</li><li>Bullet 2</li></ul>"
+      '<h2 id="heading-2">Heading 2</h2><hr /><ul><li>Bullet 1</li><li>Bullet 2</li></ul>'
     );
   });
 
@@ -69,7 +69,7 @@ describe("md()", () => {
           heading: "big-heading text-2xl",
         },
       })
-    ).toBe('<h1 class="big-heading text-2xl">Heading</h1><hr />');
+    ).toBe('<h1 id="heading" class="big-heading text-2xl">Heading</h1><hr />');
   });
 
   test("should apply mutliple styles", () => {
@@ -80,7 +80,7 @@ describe("md()", () => {
         },
       })
     ).toBe(
-      '<h1 class="big-heading text-2xl">Heading</h1><hr /><ul><li>Bullet</li></ul>'
+      '<h1 id="heading" class="big-heading text-2xl">Heading</h1><hr /><ul><li>Bullet</li></ul>'
     );
   });
 
@@ -92,7 +92,7 @@ describe("md()", () => {
         Content
       }
     `)
-    ).toBe('<div class="card"><h3>Post</h3>Content</div>');
+    ).toBe('<div class="card"><h3 id="post">Post</h3>Content</div>');
   });
 
   test("should make a paragraph", () => {
@@ -124,7 +124,7 @@ describe("md()", () => {
       }
     `)
     ).toBe(
-      '<div class="card"><h3>Heading</h3><p class="muted">Content</p></div>'
+      '<div class="card"><h3 id="heading">Heading</h3><p class="muted">Content</p></div>'
     );
   });
 });
@@ -132,22 +132,22 @@ describe("md()", () => {
 describe("mdFile()", () => {
   test("should return md from a file", () => {
     expect(mdFile(path.resolve(__dirname, "index.spec.md"))).toBe(
-      "<h1>Installation</h1><hr /><ul><li>Bullet 1</li></ul>"
+      '<h1 id="installation">Installation</h1><hr /><ul><li>Bullet 1</li></ul>'
     );
   });
 
   test("should return md from a file (another one)", () => {
     expect(mdFile(path.resolve(__dirname, "index-2.spec.md"))).toBe(
-      "<h1>My library</h1><hr /><ul><li><a href='#config'>Config</a></li>" +
-        "<li><a href='#quick-start'>Quick Start</a></li></ul><h2>Config</h2><hr />" +
-        '<div class="card"><h3>Some header</h3>Some body</div><h2>Quick Start</h2><hr />'
+      "<h1 id=\"my-library\">My library</h1><hr /><ul><li><a href='#config'>Config</a></li>" +
+        "<li><a href='#quick-start'>Quick Start</a></li></ul><h2 id=\"config\">Config</h2><hr />" +
+        '<div class="card"><h3 id="some-header">Some header</h3>Some body</div><h2 id="quick-start">Quick Start</h2><hr />'
     );
   });
 
   test("should return md from a file (another one) +1", () => {
     expect(mdFile(path.resolve(__dirname, "index-3.spec.md"))).toBe(
-      '<div class="card"><h3>Some header 1</h3>Some body 1</div>' +
-        '<div class="card"><h3>Some header 2</h3>Some body 2</div>'
+      '<div class="card"><h3 id="some-header-1">Some header 1</h3>Some body 1</div>' +
+        '<div class="card"><h3 id="some-header-2">Some header 2</h3>Some body 2</div>'
     );
   });
 });
