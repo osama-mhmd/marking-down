@@ -10,30 +10,30 @@ const g = {
 function y(t) {
   return /^#+ (.*)$/.test(t);
 }
-function m(t, e) {
-  const n = t.split(" ")[0].length,
+function m(t, n) {
+  const e = t.split(" ")[0].length,
     i = /\# (.*)/.exec(t)[1];
   return s(
-    `<h${n} id="${i.toLowerCase().split(" ").join("-")}">${i}</h${n}>${
-      n > 2 ? "" : "<hr />"
+    `<h${e} id="${i.toLowerCase().split(" ").join("-")}">${i}</h${e}>${
+      e > 2 ? "" : "<hr />"
     }`,
-    e
+    n
   );
 }
-function s(t, e) {
-  return e ? t.replace(">", ` class="${e}">`) : t;
+function s(t, n) {
+  return n ? t.replace(">", ` class="${n}">`) : t;
 }
-function l(t) {
+function u(t) {
   return /^\- (.*)$/.test(t);
 }
-function L(t, e, n, i) {
-  const a = l(t[n - 1]) ? "" : "<ul>",
-    r = l(t[n + 1]) ? "" : "</ul>";
-  return a + s(`<li>${e.split(" ").slice(1).join(" ")}</li>`, i) + r;
+function L(t, n, e, i) {
+  const a = u(t[e - 1]) ? "" : "<ul>",
+    r = u(t[e + 1]) ? "" : "</ul>";
+  return a + s(`<li>${n.split(" ").slice(1).join(" ")}</li>`, i) + r;
 }
-function j(t, e = g) {
+function j(t, n = g) {
   var a;
-  let n = 0;
+  let e = 0;
   const i = t
     .split(
       `
@@ -43,37 +43,39 @@ function j(t, e = g) {
     .filter((r) => r != "");
   return i
     .map((r, p) => {
-      var u, c, d, o, f, h;
+      var l, c, d, o, f, h;
       if (r == "@@") {
         const $ =
-          n % 2
+          e % 2
             ? "</p>"
-            : s("<p>", (u = e.styles) == null ? void 0 : u.paragraph);
-        return n++, $;
+            : s("<p>", (l = n.styles) == null ? void 0 : l.paragraph);
+        return e++, $;
       }
       return (
         (r = r.replaceAll(
           /@@(.*?)@@/g,
-          s("<p>$1</p>", (c = e.styles) == null ? void 0 : c.paragraph)
+          s("<p>$1</p>", (c = n.styles) == null ? void 0 : c.paragraph)
         )),
         r.indexOf("@@") != -1 &&
           ((r = r.replace(
             "@@",
-            n % 2
+            e % 2
               ? "</p>"
-              : s("<p>", (d = e.styles) == null ? void 0 : d.paragraph)
+              : s("<p>", (d = n.styles) == null ? void 0 : d.paragraph)
           )),
-          n++),
+          e++),
         y(r)
-          ? m(r, (o = e.styles) == null ? void 0 : o.heading)
-          : l(r)
-          ? L(i, r, p, (f = e.styles) == null ? void 0 : f.li)
+          ? m(r, (o = n.styles) == null ? void 0 : o.heading)
+          : u(r)
+          ? L(i, r, p, (f = n.styles) == null ? void 0 : f.li)
           : r == "{"
-          ? s("<div>", (h = e.styles) == null ? void 0 : h.card)
+          ? s("<div>", (h = n.styles) == null ? void 0 : h.card)
           : r == "}"
           ? "</div>"
           : i[p + 1] == "}"
           ? r
+          : r == "---"
+          ? "<hr />"
           : r + " "
       );
     })
@@ -81,11 +83,11 @@ function j(t, e = g) {
     .trim()
     .replaceAll(
       /\[(.*?)\]\((.*?)\)/g,
-      s("<a href='$2'>$1</a>", (a = e.styles) == null ? void 0 : a.hyperlink)
+      s("<a href='$2'>$1</a>", (a = n.styles) == null ? void 0 : a.hyperlink)
     )
     .replaceAll(/>(.*?) ?</g, ">$1<");
 }
-function v(t, e) {
-  return j((void 0)(t, { encoding: "utf8" }), e);
+function v(t, n) {
+  return j((void 0)(t, { encoding: "utf8" }), n);
 }
 export { j as md, v as mdFile };

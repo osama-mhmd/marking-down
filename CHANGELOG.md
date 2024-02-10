@@ -1,5 +1,11 @@
 # marking-down
 
+## 0.1.3
+
+### Patch Changes
+
+- "---" seperators
+
 ## 0.1.2
 
 ### Patch Changes
