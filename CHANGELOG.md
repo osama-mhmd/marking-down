@@ -1,5 +1,12 @@
 # marking-down
 
+## 0.1.1
+
+### Patch Changes
+
+- Headings have ids
+- f6b6bec: NO HR in heading level 3 or lower
+
 ## 0.1.0
 
 ### Minor Changes
