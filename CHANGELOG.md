@@ -1,5 +1,11 @@
 # marking-down
 
+## 0.1.2
+
+### Patch Changes
+
+- Fixes in headings and bullets
+
 ## 0.1.1
 
 ### Patch Changes

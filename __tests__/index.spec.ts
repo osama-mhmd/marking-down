@@ -127,6 +127,18 @@ describe("md()", () => {
       '<div class="card"><h3 id="heading">Heading</h3><p class="muted">Content</p></div>'
     );
   });
+
+  test("shouldn't make a bullet", () => {
+    expect(md("Osama Mohammed @ marking-down --- 2024")).toBe(
+      "Osama Mohammed @ marking-down --- 2024"
+    );
+  });
+
+  test("shouldn't make a heading", () => {
+    expect(md("Osama Mohammed # marking-down --- 2024")).toBe(
+      "Osama Mohammed # marking-down --- 2024"
+    );
+  });
 });
 
 describe("mdFile()", () => {

@@ -3,7 +3,7 @@ import Config from "./config.d";
 import defaultConfig from "./config";
 
 function isHeading(text: string) {
-  return /\# (.*)/.test(text);
+  return /^#+ (.*)$/.test(text);
 }
 function head(text: string, styles: string | undefined) {
   const headingLevel = text.split(" ")[0].length;
@@ -23,7 +23,7 @@ function style(el: string, styles: string | undefined) {
   return styles ? el.replace(">", ` class="${styles}">`) : el;
 }
 function isLi(text: string) {
-  return /\- (.*)/.test(text);
+  return /^\- (.*)$/.test(text);
 }
 function bullet(
   lines: string[],
